@@ -23,7 +23,7 @@ this allows us to know the search-space coordinates.
 this is similar to mco::paretoSet() however that depends on the optimization-algorithm being able to calculate the logical dominated column itself. this does not have any dependencies
 }
 \examples{
-this shows two values on the two axis' and their two search-space coordinates as color and form
+this shows two values on the two axis and their two search-space coordinates as color and form
 value1 = runif(20)
 value2 = runif(20)
 coord1 = 1:20

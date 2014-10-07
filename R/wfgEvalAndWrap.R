@@ -1,6 +1,6 @@
-source("wfgShape.R")
-source("wfgTransformation.R")
-source("wfgEvalAndWrapUtil.R")
+source("R/wfgShape.R")
+source("R/wfgTransformation.R")
+source("R/wfgEvalAndWrapUtil.R")
 
 #' wfgEval evaluates a test function conforming to a given specification at a given point. \cr
 #' wfgWrap creates a functor conforming to a given specification without evaluating it. \cr

@@ -6,7 +6,7 @@
 # a parameter-default of =NA shows that there is a default (which will be calculated on demand) as opposed to a required value
 # function naming here is as in wfg-paper plus prefix wfg (but tNone does not exist)
 
-source("wfgUtil.R")
+source("R/wfgUtil.R")
 
 #' tNone is a transformation that changes nothing \cr
 #' Used to move the entries cursor along to change later entries.

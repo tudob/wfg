@@ -2,7 +2,7 @@
 # "decept": in wfg9 this is only applied to a certain k
 # "multi": in wfg9 this is only applied to a certain k, here k=n
 
-source("wfgTransformations.R")
+source("R/wfgTransformations.R")
 
 #' wfgTransformation - used by wfgEval to apply a transformation to part of the search-space vector
 #'

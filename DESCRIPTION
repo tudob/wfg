@@ -5,14 +5,14 @@ Description: The toolkit presented by the WFG group in 2006 provides a way to
     relies on programming each test function in C++. This R package presents a
     way by which transformations, shapes and various parameters can be combined
     declaratively.
-Authors@R: c(person("B.", "Elkemann", email = "sd18f@yahoo.de"))
+Authors@R: c(person("B.", "Elkemann", email = "sd18f@yahoo.de", role = c("aut", "cre")))
 URL: https://github.com/tudob/wfg
 BugReports: https://github.com/tudob/wfg/issues
 License: MIT
 Encoding: UTF-8
 Roxygen: list(wrap = FALSE)
 Suggests:
-    testthat
+    testthat,
     pixmap
 ByteCompile: yes
 Version: 0.1

@@ -5,7 +5,7 @@
 # conventions used:
 # *here* ie in individual shapes: x always has dim M-1 (not M). result is always M-dim.
 
-source("wfgUtil.R")
+source("R/wfgUtil.R")
 
 #' sNone is a shape that changes nothing. \cr
 #' Used to move the entries cursor along to change later entries.

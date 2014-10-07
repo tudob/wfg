@@ -1,5 +1,5 @@
-source("nonDominated.R")
-  source("randomsearch.R") # this is only needed for the green dots
+source("R/nonDominated.R")
+  source("R/randomsearch.R") # this is only needed for the green dots
 
 # TODO: 
 # find out whether this kind of plot is considered good/bad. name?

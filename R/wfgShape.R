@@ -1,4 +1,4 @@
-source("wfgShapes.R")
+source("R/wfgShapes.R")
 
 #' wfgShape - used by wfgEval to apply a shape to part of the objective-space vector
 #'

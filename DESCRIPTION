@@ -13,5 +13,6 @@ Encoding: UTF-8
 Roxygen: list(wrap = FALSE)
 Suggests:
     testthat
+    pixmap
 ByteCompile: yes
 Version: 0.1

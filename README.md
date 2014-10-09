@@ -18,13 +18,25 @@ The testfunction-specification given to wfgEval or wfgWrap is made up of two par
 - Additional control arguments, e.g. whether the testfunction should degenerate (see paper).
 
 To start using it right away refer to the man pages:
+
 ?wfgEval
 ?wfgTrafos
 ?wfgShapes
-  Also of interest may be:
-The visualizations: ?trueFront, ?withDominated, ?toPlot
-As well as the utility functions: ?nonDominated, ?randomSearch, ?timing
-And the example-problems of the wfg-paper: ?wfgSuite
+
+    Also of interest may be:
+
+The visualizations: 
+?trueFront
+?withDominated
+?toPlot
+
+As well as the utility functions: 
+?nonDominated
+?randomSearch
+?timing
+
+And the example-problems of the wfg-paper: 
+?wfgSuite
 
 Many more examples can be found in tests/testthat/test_wfgEvalAndWrap.R.
 

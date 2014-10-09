@@ -17,11 +17,14 @@ wfg9spec <<- NA
 wfg9 <<- NA
 wfg9t <<- NA
 
-#' this is a deferred initialization to bring definitions of some of the WFG example problems into the global environment
-#' they are wfgXspec, wfgX, wfgXt where X is 1, 4, 5, 6, 7, or 9
-#' wfgXSpec is only the declarative specification, 
-#' wfgX is the actual evaluating function
-#' wfgXt is its true-front version
+#' wfgSuite
+#'
+#' Some of the example problems given by the WFG 2006 paper. \cr\cr
+#' Implementation note: This is a deferred initialization which brings the definitions into the global environment. \cr\cr
+#' They are wfgXspec, wfgX, wfgXt where X is 1, 4, 5, 6, 7, or 9. \cr\cr
+#' wfgXSpec is only the declarative specification,  \cr
+#' wfgX is the actual evaluating function, \cr
+#' wfgXt is its true-front version. \cr
 #'
 #' @param n \cr
 #'   Number of search-space dimensions

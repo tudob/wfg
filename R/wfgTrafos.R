@@ -10,25 +10,28 @@
 
 #' WFG Transformations
 #'
-#' tNone is a transformation that changes nothing. It is used to move the entries cursor along to change later entries.\cr
-#' tPoly is the polynomial bias transformation.\cr
-#' tFlat creates a region in search space in which all points have the same objective values.\cr
-#' tParam is the parameter-dependent transformation.\cr
-#' tLinear creates a linear shift of the true optimum.\cr
-#' tDecept creates regions in the search space that have a sub-optimal value but larger area.\cr
-#' tMulti creates many local optima.\cr
-#' tSum creates a dependence between different search-space entries.\cr
-#' tNonsep creates a dependence between objectives.\cr
+#' tNone is a transformation that changes nothing. It is used to move the entries cursor along to change later entries.\cr\cr
+#' tPoly is the polynomial bias transformation.\cr\cr
+#' tFlat creates a region in search space in which all points have the same objective values.\cr\cr
+#' tParam is the parameter-dependent transformation.\cr\cr
+#' tLinear creates a linear shift of the true optimum.\cr\cr
+#' tDecept creates regions in the search space that have a sub-optimal value but larger area.\cr\cr
+#' tMulti creates many local optima.\cr\cr
+#' tSum creates a dependence between different search-space entries.\cr\cr
+#' tNonsep creates a dependence between objectives.\cr\cr
 #'
 #' @param y \cr
 #'   The value of the search space entry to which to apply this to.
+#' \cr
 #' @param alpha \cr
 #'   tPoly: alpha>1 biases toward 0, <1 biases toward 1.
+#' \cr
 #' @param value \cr
 #'   tFlat: The value of the flat region. The adjacent regions interpolate to this value.
 #' @param from \cr
 #' @param to \cr
 #'   tFlat: The region of the search space that is flat, same for every dimension.
+#' \cr
 
 #' @param y.prime \cr
 #'   tParam: Is set by the system, it does not occur in the parameters the user writes in the specification
@@ -38,8 +41,10 @@
 #' @param ender \cr
 #'   tParam: The influence region.
 
+#' \cr
 #' @param zero.loc \cr
 #'   tLinear: The location of the true optimum.
+#' \cr
 
 #' @param opti.loc \cr
 #'   tDecept: The location of the true optimum.
@@ -47,6 +52,7 @@
 #'   tDecept: The size of the opening around the true optimum.
 #' @param deceptive.value \cr
 #'   tDecept: The value of the sub-optimal areas.
+#' \cr
 
 #' @param opti.loc \cr
 #'   tMulti: The location of the true optimum.
@@ -54,6 +60,7 @@
 #'   tMulti: The number of the local optima.
 #' @param hill.size \cr
 #'   tMulti: The size of the hills between the local optima.
+#' \cr
 
 #' @param i \cr
 #' @param k \cr
@@ -64,18 +71,23 @@
 #'   tSum: The entries which are made dependent on eachother.
 #' @param weights \cr
 #'   tSum: Optional for the weighted sum.
+#' \cr
 
 #' @param degree \cr
 #'   tNonsep: Degree of nonseparability.
-
+#' \cr
 
 #' @return The modified value.
+#' @export
+wfgTrafos = function() {} # placeholder
+
+#' @rdname wfgTrafos
 #' @export
 tNone = function(y) { return(y) }
 attr(tNone, "type") = "wfgTrafo"
 attr(tNone, "name") = "tNone"
 
-#' @rdname tNone
+#' @rdname wfgTrafos
 #' @export
 tPoly = function(y, alpha=0.02) { # alpha >1~<1 bias toward 0~1 (1.0 would be no change). default taken from wfg9 example
   if (alpha<=0) stop("alpha has to be greater than 0")
@@ -85,7 +97,7 @@ tPoly = function(y, alpha=0.02) { # alpha >1~<1 bias toward 0~1 (1.0 would be no
 attr(tPoly, "type") = "wfgTrafo"
 attr(tPoly, "name") = "tPoly"
 
-#' @rdname tNone
+#' @rdname wfgTrafos
 #' @export
 tFlat = function(y, value=0.8, from=0.75, to=0.85) { # defaults taken from wfg1 example
   if (wfg.verbose) cat("flat ", value, from, to, "\n")
@@ -105,7 +117,7 @@ tFlat = function(y, value=0.8, from=0.75, to=0.85) { # defaults taken from wfg1 
 attr(tFlat, "type") = "wfgTrafo"
 attr(tFlat, "name") = "tFlat"
 
-#' @rdname tNone
+#' @rdname wfgTrafos
 #' @export
 tParam = function(y, y.prime=NA, factor=0.98/49.98, starter=0.02, ender=50) { # defaults taken from paper wfg7,8,9  (c++: 0.5, 2, 10)
                                 # y.prime's value is set in wfgTrafo()
@@ -125,7 +137,7 @@ tParam = function(y, y.prime=NA, factor=0.98/49.98, starter=0.02, ender=50) { # 
 attr(tParam, "type") = "wfgTrafo"
 attr(tParam, "name") = "tParam"
 
-#' @rdname tNone
+#' @rdname wfgTrafos
 #' @export
 tLinear = function(y, zero.loc=0.35) { # default taken from wfg1 example
   A = zero.loc
@@ -136,7 +148,7 @@ tLinear = function(y, zero.loc=0.35) { # default taken from wfg1 example
 attr(tLinear, "type") = "wfgTrafo"
 attr(tLinear, "name") = "tLinear"
 
-#' @rdname tNone
+#' @rdname wfgTrafos
 #' @export
 tDecept = function(y, opti.loc=0.35, aperture=0.001, deceptive.value=0.05) { 
   # always optimumValue==0 and 2 deceptive points.
@@ -161,7 +173,7 @@ tDecept = function(y, opti.loc=0.35, aperture=0.001, deceptive.value=0.05) {
 attr(tDecept, "type") = "wfgTrafo"
 attr(tDecept, "name") = "tDecept"
 
-#' @rdname tNone
+#' @rdname wfgTrafos
 #' @export
 tMulti = function(y, num.minima=30, hill.size=95, opti.loc=0.35) { # defaults taken from wfg9 example
   A = num.minima
@@ -179,7 +191,7 @@ tMulti = function(y, num.minima=30, hill.size=95, opti.loc=0.35) { # defaults ta
 attr(tMulti, "type") = "wfgTrafo"
 attr(tMulti, "name") = "tMulti"
 
-#' @rdname tNone
+#' @rdname wfgTrafos
 #' @export
 tSum = function(y, i, k, M, from=NA, to=NA, weights=NA) { # i, k, M: for system only (dont specify it). defaults for from/to see paper wfg1 and wfgTransformation.R
   n = length(y)
@@ -215,7 +227,7 @@ tSum = function(y, i, k, M, from=NA, to=NA, weights=NA) { # i, k, M: for system 
 attr(tSum, "type") = "wfgTrafo"
 attr(tSum, "name") = "tSum"
 
-#' @rdname tNone
+#' @rdname wfgTrafos
 #' @export
 tNonsep = function(y, degree=NA) { # degree of nonseparability. degree's default is computed in wfgTransformation()
   A = degree

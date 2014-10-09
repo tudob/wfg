@@ -17,13 +17,14 @@ library(pixmap)
 # install.packages("mco")
 # library(mco)
 
-#' A visualization used alongside the wfg package. 
-#' Showing for each point in the discretized search-space which objective-values will be realized by it as color.
-#' At the moment the first two search-space dimensions are selected (this should be parameterized in the future)
-#' it is possible to show an RGB- or red-blue plot (chosen because of common red-green blindness).
-#' red-blue: red is a large value in the first objective, blue in the second.
-#' Green dots show the non-dominated individuals of a run of random-search, it is suprisingly instructive.
-#' toPlot22 is a 2->2 dimensional wrapper taking a wfg spec instead of an arbitrary function.
+#' toPlot
+#'
+#' A visualization used alongside the wfg package. It shows for each point in the discretized search-space which objective-values will be realized by it (as color).\cr\cr
+#' At the moment the first two search-space dimensions are selected (this should be parameterized in the future).\cr\cr
+#' It is possible to show an RGB- or Red-Blue-plot (chosen because of common red-green blindness).\cr\cr
+#' Red-Blue: Red shows a large value in the first objective, Blue shows a large value in the second objective.\cr
+#' Green dots show the non-dominated individuals of a run of random-search, it is surprisingly instructive.\cr\cr
+#' toPlot22 is a wrapper taking a wfg spec instead of an arbitrary function.\cr
 #'
 #' @param func \cr
 #'   The function to be shown

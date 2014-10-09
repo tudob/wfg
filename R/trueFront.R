@@ -1,7 +1,8 @@
-#' A plot showing the true pareto front
-#' making use of wfgEval's parameter true.front
+#' trueFront
+#'
+#' A plot showing the true pareto front - making use of wfgEval's parameter true.front
 #' @param name \cr
-#'   Name under which to store the png
+#'   Name under which to store a .png
 #' @param spec \cr
 #'   Specification of the test function to plot
 #' @return nothing
@@ -25,6 +26,7 @@ trueFront = function(name, spec, removeDominated=TRUE) {
   plot(m, pch=19, main="", xlab="", ylab="")
     # we would want to use type="L" and much fewer points, however we have to display a disconnected front.
   dev.off()
+  cat("file saved\n")
   return (invisible(NULL))
 }
 # trueFront("truefrontLinear", c(sLinear))

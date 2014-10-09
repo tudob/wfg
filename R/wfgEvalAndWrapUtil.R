@@ -1,9 +1,14 @@
-#' Utility functions for wfgEval
+#' Utility functions for wfgEval and wfgWrap
 #'
-#' used only within wfgEval
-#' checkTrafoComplete: different transformations can be applied throughout the vector - this can be done multiple times, each time the vector wraps around (from last index to first) - the last transformation overall has to end at the last entry of the vector, this function checks that condition.
-#' checkShapeComplete: similar to checkTrafoComplete (however shapes dont wrap around).
-#' tToX: transformations are applied to the search-space vector, shapes to the objective-space vector. tToX does the transformation of the first to the second and also integrates the degeneracy factor A.
+#' used only within wfgEval \cr\cr
+#' checkTrafoComplete: different transformations can be applied throughout the vector - this can be done multiple times, each time the vector wraps around (from last index to first) - the last transformation overall has to end at the last entry of the vector, this function checks that condition.\cr\cr
+#' checkShapeComplete: similar to checkTrafoComplete (however shapes dont wrap around).\cr\cr
+#' tToX: transformations are applied to the search-space vector, shapes to the objective-space vector. tToX does the transformation of the first to the second and also integrates the degeneracy factor A. \cr\cr
+
+#' @export
+wfgEvalAndWrapUtil = function() {} # placeholder
+
+#' @rdname wfgEvalAndWrapUtil
 #' @export
 checkTrafoComplete = function(target.index) {
   if (target.index!=1) {
@@ -12,7 +17,7 @@ checkTrafoComplete = function(target.index) {
   }
   return (invisible(NULL))
 }
-#' @rdname checkTrafoComplete
+#' @rdname wfgEvalAndWrapUtil
 #' @export
 checkShapeComplete = function(target.index, current.shape) {
   if (target.index!=1) {
@@ -25,7 +30,7 @@ checkShapeComplete = function(target.index, current.shape) {
   }
   return (invisible(NULL))
 }
-#' @rdname checkTrafoComplete
+#' @rdname wfgEvalAndWrapUtil
 #' @export
 tToX = function(t, M, A) { # the t-to-x transition from the wfg-paper. this is applied after all transformations before all shapes
     # A: vector of {0, 1} degeneracy constants. for each that is 0 the p-front will have one less dimension

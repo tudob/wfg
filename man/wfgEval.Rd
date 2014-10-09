@@ -2,10 +2,7 @@
 \name{wfgEval}
 \alias{wfgEval}
 \alias{wfgWrap}
-\title{wfgEval evaluates a test function conforming to a given specification at a given point. \cr
-wfgWrap creates a functor conforming to a given specification without evaluating it. \cr
-wfgEval can be directly executed e.g. in a loop trying various parameters. \cr
-wfgEvals return value can be given to optimization-algorithms.}
+\title{wfgEval and wfgWrap}
 \usage{
 wfgEval(z, num.objectives, spec, z.maxes = NA, num.pos.rel = NA,
   degen = FALSE, scales = NA, dist = NA, noise = 0,
@@ -51,23 +48,39 @@ Whether to instead return the point on the true pareto frontier corresponding to
 wfgEval: The vector of objective values. wfgWrap: a functor that can be given to optimization algorithms.
 }
 \description{
-wfgEval evaluates a test function conforming to a given specification at a given point. \cr
-wfgWrap creates a functor conforming to a given specification without evaluating it. \cr
+wfgEval evaluates a test function (conforming to a specification) at a given point. \cr
+wfgWrap creates a functor (conforming to a specification) without evaluating it. \cr\cr
 wfgEval can be directly executed e.g. in a loop trying various parameters. \cr
-wfgEvals return value can be given to optimization-algorithms.
+wfgWrap returned functor can be given to optimization algorithms.
 }
 \examples{
 v2 = c(0.1, 0.2) # example input vectors
 v3 = c(0.1, 0.2, 0.3)
 v4 = c(0.1, 0.2, 0.3, 0.4)
 v5 = c(0.1, 0.2, 0.3, 0.4, 0.5)
-wfgEval(v3, 3, c(sConvex)) # specification to only evaluate the convex shape, no transformations
-wfgEval(v3, 3, degen=TRUE, c(sConvex)) # recommended placing any optional parameters in front of the spec.
-wfgEval(v3, 3, c(sLinear, 2, sMixed))  # the first parameter is the number of entries to apply the front to. the default is to apply to all remaining entries, except for mixed and disconnected fronts which can only transform a single entry.
-wfgEval(v3, 3, c(sDisc, NA, 1.3, sLinear)) # order-based parameters can be given, in this case the overall shape is 1.3, the other parameters of the disconnected shape remain their defaults.
-wfgEval(v3, 3, c(tFlat, 3, 0.9, 0.2, 0.5, sLinear)) # a transformation with order-based parameters (number of entries, value, from, to)
-wfgEval(v3, 3, c(tDecept, aper=0.25, sLinear)) # named parameter (aperture size), all other parameters stay on default.
-wfgEval(v3, 3, c(tPoly, alpha=0.02, tDecept, NA, 0.35, 0.001, 0.05, tMulti, 1, num.minima=30, tNonsep, sConvex, 1, sLinear)) # 4 transformations, 2 shapes. in this example all transformations are applied to all entries.
-functor = wfgWrap(2, c(sLinear)) # the only difference in arguments is, that the first argument -the point z- is not provided
+
+wfgEval(v3, 3, c(sConvex))
+       # Specification to only evaluate the convex shape, no transformations.
+
+wfgEval(v3, 3, degen=TRUE, c(sConvex))
+       # It is recommended placing any optional parameters in front of the spec (which can be long).
+
+wfgEval(v3, 3, c(sLinear, 2, sMixed))
+       # The first parameter is the number of entries to apply the front to. the default is to apply to all remaining entries, except for mixed and disconnected fronts which can only transform a single entry.
+
+wfgEval(v3, 3, c(sDisc, NA, 1.3, sLinear))
+       # Order-based parameters can be given, in this case the overall shape is 1.3, the other parameters of the disconnected shape remain their defaults.
+
+wfgEval(v3, 3, c(tFlat, 3, 0.9, 0.2, 0.5, sLinear))
+       # A transformation with order-based parameters (number of entries, value, from, to).
+
+wfgEval(v3, 3, c(tDecept, aper=0.25, sLinear))
+       # Named parameter (aperture size), all other parameters stay on default.
+
+wfgEval(v3, 3, c(tPoly, alpha=0.02, tDecept, NA, 0.35, 0.001, 0.05, tMulti, 1, num.minima=30, tNonsep, sConvex, 1, sLinear))
+       # Four transformations and two shapes. In this example all transformations are applied to all entries either by using named parameters or in positional parameters by skipping the apply-length with NA.
+
+functor = wfgWrap(2, c(sLinear))
+       # Compared to wfgEval the only difference in arguments is, that the first argument - the point z - is not given.
 }
 

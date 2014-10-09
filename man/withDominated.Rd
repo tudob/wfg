@@ -11,12 +11,15 @@ baGraphicsWithDominated(name, spec)
 \arguments{
 \item{func}{\cr
 The function to plot}
+
+\item{spec}{\cr
+Specification of the function to plot}
 }
 \value{
 nothing
 }
 \description{
-withDominated is a visualization used alongside the wfg package. Showing the objective space but complemented by the dominated individuals.
+withDominated is a visualization used alongside the wfg package. It shows the usual representation of objective space and pareto-frontier but complements it with the dominated individuals.\cr\cr
 baGraphicsWithDominated is a wrapper taking a filename for output and a specification for the test-function.
 }
 \examples{

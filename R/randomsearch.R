@@ -14,22 +14,23 @@ randomdirection = function(dim) { # using Marsaglia's method
 # }
 # plot(m)
 
-#' random search (Rastrigin 1963)
-#' - Initialize individuals by uniform distribution in the search-space
-#' - In each iteration try to improve the individual using a random direction and stepsize
-#' - The random direction is chosen following Marsaglia 1972
-#' - The stepsize is chosen by an exponential distribution, preferring small steps
+#' random search
+#'
+#' An example algorithm used alongside the WFG package with the goal to be as simple as possible while still resembling better algorithms in that it is probabilistic, population-based and iterative (Rastrigin 1963).\cr\cr
+#' It follows the steps:\cr
+#' - Initialize individuals by uniform distribution in the search-space. \cr
+#' - In each iteration try to improve each individual using a random direction and stepsize. \cr\cr
+#' The random direction is chosen with Marsaglia's method (1972). \cr
+#' The stepsize is chosen by an exponential distribution, preferring small steps. \cr
 #'
 #' @param func \cr
 #'   The function to optimize
 #' @param evals \cr
-#'   The number of evaluations allowed. Divide these into sqrt(evals) individuals and generations (heuristic).
+#'   The number of evaluations allowed. Will be divided into sqrt(evals) individuals and generations (heuristic).
 #' @param inDim \cr
 #'   The number of search-space dimensions.
 #' @return The final points and their objective-values.
 #' @export
-#' @examples
-#' v2 = c(0.1, 0.2) # example input vectors
 randomsearch = function(func, evals=1000, inDim=5) {
   # cat("randomsearch with ", evals, " evaluations\n")
   points = floor(sqrt(evals)) # heuristic

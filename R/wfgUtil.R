@@ -3,7 +3,7 @@
 # wfg.verbose = TRUE # flag: to show debug output
 wfg.verbose = FALSE
 
-to01 = function(x) { # (new) clamp vector x to 0-1-interval
+to01 = function(x) { # clamp vector x to 0-1-interval (new implementation)
   x = x-x*(x>1)+(x>1)
   x = x-x*(x<0)
   return (x)
@@ -43,13 +43,9 @@ rankMatrix = function(mat) {
 }
 
 #' parseParams - utility function for WFG
-#' this is only exported for the tests
 #'
-#' @param strList \cr
-#'   .
-#' @param i \cr
-#'   .
-#' @return nothing
+#' This is only exported for the tests\cr
+#'
 #' @export
 
 parseParams = function(strList, i) {

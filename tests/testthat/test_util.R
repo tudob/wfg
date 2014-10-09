@@ -1,5 +1,7 @@
 context("wfgUtil")
 
+aFunc = function() {}
+
 test_that("wfgUtil", {
 
 expect_equal( parseParams(list(aFunc, 1, 2, 3), 1) , list(1, 2, 3) )

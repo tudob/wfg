@@ -1,4 +1,4 @@
-source("R/wfgShapes.R")
+# source("R/wfgShapes.R")
 
 #' wfgShape - used by wfgEval to apply a shape to part of the objective-space vector
 #'
@@ -35,7 +35,7 @@ wfgShape = function(x, current, start.index, apply.length, params) {
   # normally take the same entries, ie if target-vector's entry 2 should be shaped then take shaped's entry 2.
   # special case: mixed and disc only have one entry, take that regardless of where it should be placed in the target.
   
-  if (identical(current, wfgMixed) || identical(current, wfgDisc)) { # compat
+  if (identical(current, sMixed) || identical(current, sDisc)) { # compat
     if (apply.length!=1) stop("applylength of mixed or disc shapes has to be 1")
     x[start.index] = shaped[1]
   } else { # normal case    

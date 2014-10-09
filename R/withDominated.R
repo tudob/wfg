@@ -1,3 +1,5 @@
+#' withDominated 
+#' 
 #' withDominated is a visualization used alongside the wfg package. Showing the objective space but complemented by the dominated individuals.
 #' baGraphicsWithDominated is a wrapper taking a filename for output and a specification for the test-function.
 #'

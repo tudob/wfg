@@ -1,4 +1,4 @@
-source("R/wfgUtil.R")
+# source("R/wfgUtil.R")
 
 #' @rdname randomsearch
 #' @export

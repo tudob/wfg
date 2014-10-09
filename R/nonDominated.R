@@ -1,4 +1,6 @@
-#' nonDominated is similar to emoa::nonDominated_points() but it retains extra columns. 
+#' nonDominated
+#'
+#' nonDominated is similar to emoa::nonDominated_points() but it retains extra columns.
 #' this allows us to know the search-space coordinates. 
 #' this is similar to mco::paretoSet() however that depends on the optimization-algorithm being able to calculate the logical dominated column itself. this does not have any dependencies
 #' @param matr \cr

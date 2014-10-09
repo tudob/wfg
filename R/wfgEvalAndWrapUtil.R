@@ -1,4 +1,9 @@
 #' Utility functions for wfgEval
+#'
+#' used only within wfgEval
+#' checkTrafoComplete: different transformations can be applied throughout the vector - this can be done multiple times, each time the vector wraps around (from last index to first) - the last transformation overall has to end at the last entry of the vector, this function checks that condition.
+#' checkShapeComplete: similar to checkTrafoComplete (however shapes dont wrap around).
+#' tToX: transformations are applied to the search-space vector, shapes to the objective-space vector. tToX does the transformation of the first to the second and also integrates the degeneracy factor A.
 #' @export
 checkTrafoComplete = function(target.index) {
   if (target.index!=1) {
@@ -12,7 +17,7 @@ checkTrafoComplete = function(target.index) {
 checkShapeComplete = function(target.index, current.shape) {
   if (target.index!=1) {
     if (wfg.verbose) cat("should be 1: ", target.index, "\n")
-    if ( identical(current.shape, wfgMixed) || identical(current.shape, wfgDisc) ) {
+    if ( identical(current.shape, sMixed) || identical(current.shape, sDisc) ) {
       stop("mixed and disconnected shapes always have applylength 1 but then this specification does not cover the remaining entries of the target")
     } else {
       stop("the last shape specification should either omit the applylength (default is apply-to-rest) or be consistent with the number of remaining entries of the target")

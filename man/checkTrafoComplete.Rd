@@ -12,6 +12,9 @@ checkShapeComplete(target.index, current.shape)
 tToX(t, M, A)
 }
 \description{
-Utility functions for wfgEval
+used only within wfgEval
+checkTrafoComplete: different transformations can be applied throughout the vector - this can be done multiple times, each time the vector wraps around (from last index to first) - the last transformation overall has to end at the last entry of the vector, this function checks that condition.
+checkShapeComplete: similar to checkTrafoComplete (however shapes dont wrap around).
+tToX: transformations are applied to the search-space vector, shapes to the objective-space vector. tToX does the transformation of the first to the second and also integrates the degeneracy factor A.
 }
 

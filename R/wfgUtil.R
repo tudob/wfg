@@ -42,6 +42,16 @@ rankMatrix = function(mat) {
   return ( matrix(rank(as.vector(mat)), nrow=nr, ncol=nc) )
 }
 
+#' parseParams - utility function for WFG
+#' this is only exported for the tests
+#'
+#' @param strList \cr
+#'   .
+#' @param i \cr
+#'   .
+#' @return nothing
+#' @export
+
 parseParams = function(strList, i) {
   # i is the index of the current function. 
   # find the next function (or end):

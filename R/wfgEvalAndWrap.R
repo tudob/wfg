@@ -1,6 +1,6 @@
-source("R/wfgShape.R")
-source("R/wfgTransformation.R")
-source("R/wfgEvalAndWrapUtil.R")
+# source("R/wfgShape.R")
+# source("R/wfgTransformation.R")
+# source("R/wfgEvalAndWrapUtil.R")
 
 #' wfgEval evaluates a test function conforming to a given specification at a given point. \cr
 #' wfgWrap creates a functor conforming to a given specification without evaluating it. \cr
@@ -158,7 +158,7 @@ wfgEval = function(z, num.objectives, spec, z.maxes=NA, num.pos.rel=NA, degen=FA
       # apply to the remaining entries (possibly all)
       # special case: mixed and disc shapes have to have applylength 1
       
-      if ( identical(current, wfgMixed) || identical(current, wfgDisc) ) { # compat?
+      if ( identical(current, sMixed) || identical(current, sDisc) ) { # compat?
         applylength = 1
       } else { # not the special case. all remaining entries
         applylength = M-target.index+1
@@ -169,7 +169,7 @@ wfgEval = function(z, num.objectives, spec, z.maxes=NA, num.pos.rel=NA, degen=FA
         stop("if there are arguments and the first argument is not named then it should be either the integer applylength (how many entries of the vector this transformation is applied to) or NA (resulting in the default 'all-remaining')")
       }
       # only check the special case
-      if ( (identical(current, wfgMixed) || identical(current, wfgDisc)) && applylength!=1 ) stop("mixed or disconnected shapes can only have applylength 1 (if omited then 1 is the default)")
+      if ( (identical(current, sMixed) || identical(current, sDisc)) && applylength!=1 ) stop("mixed or disconnected shapes can only have applylength 1 (if omited then 1 is the default)")
       if (target.index+applylength-1 > n) stop(paste("too large applylength (=", applylength, "): cannot apply beyond target's size (wrap has to be done explicitly to avoid errors)  (t.i. was ", target.index))
       if (wfg.verbose) cat("applying to ", applylength, "\n")
     }
@@ -221,7 +221,7 @@ wfgEval = function(z, num.objectives, spec, z.maxes=NA, num.pos.rel=NA, degen=FA
       if (wfg.verbose) cat("shape ", attr(current, "name"), " with\n")
       if (wfg.verbose) str(params)
       iSpec = iSpec + 1 + paramsOrigLength
-      if (!identical(current, wfgsNone)) {
+      if (!identical(current, sNone)) {
         if (wfg.verbose) cat("before shape: ", x, "\n")
         shape.applied = wfgShape(x, current, target.index, applylength, params)
         if (wfg.verbose) cat("after shape: ", shape.applied, "\n")

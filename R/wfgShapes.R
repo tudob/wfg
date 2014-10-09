@@ -5,24 +5,36 @@
 # conventions used:
 # *here* ie in individual shapes: x always has dim M-1 (not M). result is always M-dim.
 
-source("R/wfgUtil.R")
+# source("R/wfgUtil.R")
 
-#' sNone is a shape that changes nothing. \cr
-#' Used to move the entries cursor along to change later entries.
+#' WFG Shapes
+#'
+#' sNone is a shape that changes nothing. It is used to move the entries cursor along to change later entries.\cr
+#' sLinear is the linear pareto frontier. \cr
+#' sConvex is the convex pareto frontier. \cr
+#' sConcave is the concave pareto frontier. \cr
+#' sMixed is a shape of the pareto frontier that has some convex and concave parts. \cr
+#' sDisc is a shape of the pareto frontier that is not continuous.\cr
 #'
 #' @param x \cr
 #'   The vector in objective space without its last entry.
+#'
+#' @param overall \cr
+#'   The overall form of the pareto frontier, if it is >1 then it is more convex, if <1 then more concave.
+#' @param num \cr
+#'   Number of parts of the pareto frontier.
+#' @param overall \cr
+#'   The overall form of the pareto frontier, if it is >1 then it is more concave, if <1 then more convex.
+#' @param location \cr
+#'   Where the discontinuities are. A larger value moves it to larger values of the first objective.
+
 #' @return The modified vector.
 #' @export
 sNone = function(x) { return (invisible(NULL)) } # just proxy
 attr(sNone, "type") = "wfgShape"
 attr(sNone, "name") = "sNone"
 
-#' sLinear is the linear pareto frontier \cr
-#'
-#' @param x \cr
-#'   The vector in objective space without its last entry.
-#' @return The modified vector.
+#' @rdname sNone
 #' @export
 sLinear = function(x) {
   M = length(x)+1
@@ -35,11 +47,7 @@ sLinear = function(x) {
 attr(sLinear, "type") = "wfgShape"
 attr(sLinear, "name") = "sLinear"
 
-#' sConvex is the convex pareto frontier \cr
-#'
-#' @param x \cr
-#'   The vector in objective space without its last entry.
-#' @return The modified vector.
+#' @rdname sNone
 #' @export
 sConvex = function(x) {
   M = length(x)+1
@@ -52,11 +60,7 @@ sConvex = function(x) {
 attr(sConvex, "type") = "wfgShape"
 attr(sConvex, "name") = "sConvex"
 
-#' sConcave is the concave pareto frontier \cr
-#'
-#' @param x \cr
-#'   The vector in objective space without its last entry.
-#' @return The modified vector.
+#' @rdname sNone
 #' @export
 sConcave = function(x) {
   M = length(x)+1
@@ -69,15 +73,7 @@ sConcave = function(x) {
 attr(sConcave, "type") = "wfgShape"
 attr(sConcave, "name") = "sConcave"
 
-#' sMixed is a shape of the pareto frontier that has some convex and concave parts\cr
-#'
-#' @param x \cr
-#'   The vector in objective space without its last entry.
-#' @param overall \cr
-#'   The overall form of the pareto frontier, if it is >1 then it is more convex, if <1 then more concave.
-#' @param num \cr
-#'   Number of parts of the pareto frontier.
-#' @return The modified vector.
+#' @rdname sNone
 #' @export
 sMixed = function(x, overall=1.0, num=2) { # overall>1~<1 => convex~concave. num is number of convex/concave regions
   if (num%%1!=0) stop("number of convex/concave regions should be an integer")
@@ -94,23 +90,13 @@ sMixed = function(x, overall=1.0, num=2) { # overall>1~<1 => convex~concave. num
 attr(sMixed, "type") = "wfgShape"
 attr(sMixed, "name") = "sMixed"
 
-#' sDisc is a shape of the pareto frontier that is not continuous.
-#'
-#' @param x \cr
-#'   The vector in objective space without its last entry.
-#' @param overall \cr
-#'   The overall form of the pareto frontier, if it is >1 then it is more concave, if <1 then more convex.
-#' @param num.regions \cr
-#'   Number of parts of the pareto frontier.
-#' @param location \cr
-#'   Where the discontinuities are. A larger value moves it to larger values of the first objective.
-#' @return The modified vector.
+#' @rdname sNone
 #' @export
-sDisc = function(x, overall=1.0, num.regions=2, location=1.0) {  #!!! overall>1~<1 => concave~convex. the opposite of the above! acc. to paper. paper correct?
+sDisc = function(x, overall=1.0, num=2, location=1.0) {  #!!! overall>1~<1 => concave~convex. the opposite of the above! acc. to paper. paper correct?
   if (overall<=0) stop("overall shape has to be >0")
   if (location<=0) stop("location has to be >0")
-  if (num.regions<=0 | floor(num.regions)!=num.regions) stop ("number of disconnected regions has to be a natural number")
-  A = num.regions
+  if (num<=0 | floor(num)!=num) stop ("number of disconnected regions has to be a natural number")
+  A = num
   alpha = overall
   beta = location
   res = 1 - x[1]^alpha * cos( A * x[1]^beta * pi )^2 

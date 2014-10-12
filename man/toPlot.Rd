@@ -4,9 +4,9 @@
 \alias{toPlot22}
 \title{toPlot}
 \usage{
-toPlot(func, ranked = TRUE, inDim = 5, ...)
+toPlot(func, ranked = TRUE, inDim = 5, opt.algo = NA, ...)
 
-toPlot22(spec, ranked = TRUE, ...)
+toPlot22(spec, ranked = TRUE, opt.algo = NA, ...)
 }
 \arguments{
 \item{func}{\cr
@@ -16,23 +16,43 @@ The function to be shown}
 Decides whether the colors are chosen based on ranked objective-values. This is recommended to distinguish colors but it does not allow interpretation of their absolute values.}
 
 \item{inDim}{\cr
-Number of search-space dimensions; needed for the optimization algorithm (e.g. random search)}
+Number of search-space dimensions; needed for the optimization algorithm}
+
+\item{opt.algo}{\cr
+An optimization algorithm may be specified. Its non-dominated individuals are shown.}
 }
 \value{
 nothing
 }
 \description{
-A visualization used alongside the wfg package. It shows for each point in the discretized search-space which objective-values will be realized by it (as color).\cr\cr
+A visualization used alongside the WFG package. It shows for each point in the discretized search-space which objective-values will be realized by it (as color).\cr\cr
 At the moment the first two search-space dimensions are selected (this should be parameterized in the future).\cr\cr
 It is possible to show an RGB- or Red-Blue-plot (chosen because of common red-green blindness).\cr\cr
 Red-Blue: Red shows a large value in the first objective, Blue shows a large value in the second objective.\cr
-Green dots show the non-dominated individuals of a run of random-search, it is surprisingly instructive.\cr\cr
+Green dots show the non-dominated individuals of an optimization algorithm (which can internally run multiple times), it is surprisingly instructive.\cr\cr
 toPlot22 is a wrapper taking a wfg spec instead of an arbitrary function.\cr
 }
 \examples{
 toPlot(wfgWrap(2, c(tDecept, aperture = 0.25, sLinear) ) )
+
 toPlot22( c(tFlat, from=0.4, to=0.9, sLinear) )
+
 toPlot22( c(tMulti, hill.size=0, num.minima=100, sLinear) )
+
 toPlot22( c(tNonsep, degree=10, sLinear) )
+
+# finally an example of showing an optimization algorithm on the objective-landscape:
+# (the points returned by the algo will be filtered so only the non-dominated individuals are shown)
+install.packages("mco")
+library(mco)
+nsga2wrap = function(func, numEvals=1000) {
+  # divide numEvals into popsize*generations:
+  popsize = floor(sqrt(numEvals)/4)*4
+  generations = floor(numEvals/popsize)
+  inDim = 2
+  return ( nsga2(func, inDim, 2, lower.bounds=rep(0, 5), upper.bounds=rep(1, 5),
+                 popsize=popsize, generations=generations) )
+}
+toPlot22( c(tFlat, from=0.4, to=0.9, sLinear), opt=nsga2wrap)
 }
 

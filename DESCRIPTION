@@ -12,6 +12,8 @@ BugReports: https://github.com/tudob/wfg/issues
 License: MIT
 Encoding: UTF-8
 Roxygen: list(wrap = FALSE)
+Depends:
+    BBmisc
 Suggests:
     testthat,
     pixmap

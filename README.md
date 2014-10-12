@@ -1,12 +1,14 @@
 R WFG
 =====
 
-This is an implementation of the WFG toolkit. It is a way to construct test functions for multi-criterion optimization problems.
+The toolkit presented by the WFG group in 2006 provides a way to define test problems for multi-criterion optimization. Their implementation relies on programming each test function in C++ and was specialized to 9 example problems. 
+This R package presents a way by which transformations, shapes and various parameters can be combined
+declaratively.
 
 * original paper:
   Huband, Simon, et al. "A review of multiobjective test problems and a scalable test problem toolkit." Evolutionary Computation, IEEE Transactions on 10.5 (2006): 477-506.
 
-This package offers a full implementation of the wfg-toolkit in R. It allows much easier construction of test-functions by providing composition correctness-checks, parameter-sideconstraint-checks and an easy way to specify test-problems (mentioned as a future-work in the wfg2006c-paper)
+This package offers a full implementation of the wfg-toolkit in R. It allows much easier construction of test-functions by providing composition correctness-checks, parameter&sideconstraint-checks and an easy way to specify test-problems (mentioned as a future-work in the wfg2006c-paper)
 
 The main functions to use are wfgEval and wfgWrap. wfgEval evaluates a testfunction-specification at a certain search-space point. wfgWrap takes a testfunction-specification and returns a wrapper-function such that this only takes a search-space point as argument and can be given to optimization-algorithms.
 
@@ -32,7 +34,6 @@ The visualizations:
 
 As well as the utility functions: 
 ?nonDominated
-?randomSearch
 ?timing
 
 And the example-problems of the wfg-paper: 

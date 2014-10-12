@@ -25,13 +25,15 @@
 
 nonDominated = function(matr, numCoords) { # the first columns are coordinates, the remaining their values (on which to determine which are nonDom)
   numValues = ncol(matr)-numCoords
+  if(numValues>numCoords) stop("objective-space larger than search-space")
   l = list()
   for (i in 1:numValues) l[[i]] = matr[, numCoords+i]
   ord = do.call(order, l)
   D = matr[ord, ]
   nonDom = D
-  for (i in 1:(numValues-1) ) {
-    nonDom = nonDom[which(!duplicated(cummin(nonDom[, numCoords+i+1]))), ]
+  if(numValues>1) for (i in 1:(numValues-1) ) {
+  	tmp = nonDom[, numCoords+i+1]
+    nonDom = nonDom[which(!duplicated(cummin(tmp))), ]
   }
   return (nonDom)
 }

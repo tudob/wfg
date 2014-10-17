@@ -7,6 +7,8 @@ Description: The toolkit presented by the WFG group in 2006 provides a way to
     declaratively.
 Authors@R: c(person("B.", "Elkemann", email = "sd18f@yahoo.de", role = c("aut",
     "cre")))
+Author: B.Elkemann
+Maintainer: B.Elkemann <sd18f@yahoo.de>
 URL: https://github.com/tudob/wfg
 BugReports: https://github.com/tudob/wfg/issues
 License: MIT

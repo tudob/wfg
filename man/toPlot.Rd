@@ -43,7 +43,7 @@ toPlot22( c(tNonsep, degree=10, sLinear) )
 
 # finally an example of showing an optimization algorithm on the objective-landscape:
 # (the points returned by the algo will be filtered so only the non-dominated individuals are shown)
-install.packages("mco")
+# install.packages("mco")
 library(mco)
 nsga2wrap = function(func, numEvals=1000) {
   # divide numEvals into popsize*generations:
@@ -54,5 +54,6 @@ nsga2wrap = function(func, numEvals=1000) {
                  popsize=popsize, generations=generations) )
 }
 toPlot22( c(tFlat, from=0.4, to=0.9, sLinear), opt=nsga2wrap)
+toPlot22( c(tDecept, aperture = 0.25, sLinear), opt=nsga2wrap)
 }
 

@@ -7,6 +7,8 @@
 #'   The function to plot
 #' @param spec 
 #'   Specification of the function to plot
+#' @param name
+#'   Name of the .png file to generate
 #' @return nothing
 #' @export
 #' @examples

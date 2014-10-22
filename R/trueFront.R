@@ -5,6 +5,8 @@
 #'   Name under which to store a .png
 #' @param spec 
 #'   Specification of the test function to plot
+#' @param removeDominated
+#'    Whether to remove the dominated individuals (default: true)
 #' @return nothing
 #' @export
 #' @examples

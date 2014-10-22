@@ -5,4 +5,4 @@ wfg_*.tar.gz
 .Rhistory
 src/*.so
 src/*.o
-
+_.R

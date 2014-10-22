@@ -162,7 +162,11 @@ wfgEval = function(z, num.objectives, spec, z.maxes=NA, num.pos.rel=NA, degen=FA
     
     current = spec[[iSpec]]
     # check that current is a function not a number:
-    if (!is.function(current)) stop("at this point in the specification should be a trafo/shape-name")
+    if (!is.function(current)) {
+    	cat("found current:\n")
+    	str(current)
+    	stop("at this point in the specification should be a trafo/shape-name")
+    }
     params = parseParams(spec, iSpec)
     paramsOrigLength = length(params) # remember to know how many to skip
     
@@ -247,7 +251,7 @@ wfgEval = function(z, num.objectives, spec, z.maxes=NA, num.pos.rel=NA, degen=FA
       } else {
         if (wfg.verbose) cat("sNone\n")
       }
-      if (target.index+applylength>M+1) stop("the combination of index", target.index, "and applylength", applylength, "does not fit into the available target-dim. of", m)
+      if (target.index+applylength>M+1) stop("the combination of index ", target.index, " and applylength ", applylength, " does not fit into the available target-dim. of ", M)
       if (target.index+applylength==M+1) {
         if (iSpec>lenSpec) {
           target.index = 1

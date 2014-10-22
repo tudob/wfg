@@ -10,9 +10,12 @@
 #'   The number of objectives
 #' @param current 
 #'   The current transformation function specified by the user
+#' @param t_
+#'   the vector
 #' @param start.index
-#' @param apply.length 
 #'   Specifying to which entries to apply the transformation to.
+#' @param apply.length 
+#'   see start.index
 #' @param n 
 #'   The search-space dimension.
 #' @param k 

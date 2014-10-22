@@ -29,8 +29,10 @@
 #' @param value 
 #'   tFlat: The value of the flat region. The adjacent regions interpolate to this value.
 #' @param from 
+#'   tFlat: The region of the search space that is flat, same for every dimension.\cr
+#'   tSum: The entries which are made dependent on eachother
 #' @param to 
-#'   tFlat: The region of the search space that is flat, same for every dimension.
+#'   see from
 #' \cr
 
 #' @param y.prime 
@@ -38,8 +40,9 @@
 #' @param factor 
 #'   tParam: Determines the slope of the ramp.
 #' @param starter 
-#' @param ender 
 #'   tParam: The influence region.
+#' @param ender 
+#'   see starter
 
 #' \cr
 #' @param zero.loc 
@@ -47,15 +50,13 @@
 #' \cr
 
 #' @param opti.loc 
-#'   tDecept: The location of the true optimum.
+#'   tDecept and tMulti: The location of the true optimum.
 #' @param aperture 
 #'   tDecept: The size of the opening around the true optimum.
 #' @param deceptive.value 
 #'   tDecept: The value of the sub-optimal areas.
 #' \cr
 
-#' @param opti.loc 
-#'   tMulti: The location of the true optimum.
 #' @param num.minima 
 #'   tMulti: The number of the local optima.
 #' @param hill.size 
@@ -63,12 +64,11 @@
 #' \cr
 
 #' @param i 
+#'   tSum: i, k, M are set by the system, they do not occur in the parameters the user writes in the specification
 #' @param k 
+#'   see i
 #' @param M 
-#'   tSum: Are set by the system, they do not occur in the parameters the user writes in the specification
-#' @param from 
-#' @param to 
-#'   tSum: The entries which are made dependent on eachother.
+#'   see i
 #' @param weights 
 #'   tSum: Optional for the weighted sum.
 #' \cr

@@ -11,7 +11,7 @@ Author: B.Elkemann
 Maintainer: B.Elkemann <sd18f@yahoo.de>
 URL: https://github.com/tudob/wfg
 BugReports: https://github.com/tudob/wfg/issues
-License: MIT
+License: MIT (file LICENSE)
 Encoding: UTF-8
 Roxygen: list(wrap = FALSE)
 Depends:

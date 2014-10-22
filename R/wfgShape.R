@@ -7,8 +7,9 @@
 #' @param current 
 #'   The current shape function specified by the user
 #' @param start.index
-#' @param apply.length 
 #'   Specifying to which entries to apply the shape to.
+#' @param apply.length 
+#'   see start.index
 #' @param params 
 #'   List of parameters to this shape
 #' @return The vector x to which the shape has been applied. Those entries that were changed now have their final objective value, but more shapes can follow for the later indices.

@@ -26,8 +26,13 @@
 #'   Number of search-space dimensions; needed for the optimization algorithm
 #' @param opt.algo 
 #'   An optimization algorithm may be specified. Its non-dominated individuals are shown.
+#' @param ...
+#'    Parameters to be passed through to the plot function
+#' @param spec
+#'    In plot22 - the spec for the test function to plot
 #' @return nothing
 #' @export
+#' @import BBmisc
 #' @examples
 #'
 #' toPlot(wfgWrap(2, c(tDecept, aperture = 0.25, sLinear) ) )

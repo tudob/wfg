@@ -44,12 +44,15 @@ rankMatrix = function(mat) {
 
 #' parseParams - utility function for WFG
 #'
-#' This is only exported for the tests\cr
+#' This is only exported for the tests \cr
+#' When reading a spec there is always a current-function, this decides how many of the entries following it are parameters to it as opposed to a next-function
 #'
 #' @export
-
+#' @param strList
+#'    the parameter list - containing refs to functions and parameters for them
+#' @param  i 
+#'    is the index of the current function. 
 parseParams = function(strList, i) {
-  # i is the index of the current function. 
   # find the next function (or end):
   beyond = i+1
   len = length(strList)

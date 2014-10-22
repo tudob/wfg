@@ -23,8 +23,6 @@
 #'   The overall form of the pareto frontier, if it is >1 then it is more convex, if <1 then more concave.
 #' @param num 
 #'   Number of parts of the pareto frontier.
-#' @param overall 
-#'   The overall form of the pareto frontier, if it is >1 then it is more concave, if <1 then more convex.
 #' @param location 
 #'   Where the discontinuities are. A larger value moves it to larger values of the first objective.
 

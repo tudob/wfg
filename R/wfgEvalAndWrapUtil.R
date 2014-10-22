@@ -5,6 +5,16 @@
 #' checkShapeComplete: similar to checkTrafoComplete (however shapes dont wrap around).\cr
 #' tToX: transformations are applied to the search-space vector, shapes to the objective-space vector. tToX does the transformation of the first to the second and also integrates the degeneracy factor A. \cr
 
+#' @param target.index
+#'    checkTrafoComplete and checkShapeComplete decide based on target.index and current.shape whether the transformation/shape is complete.
+#' @param current.shape
+#'    see target.index
+#' @param t
+#'    Search-space vector used in the t-to-x transition
+#' @param M
+#'    Objective-space dimension
+#' @param A
+#'    Degeneration constant
 #' @export
 wfgEvalAndWrapUtil = function() {} # placeholder
 

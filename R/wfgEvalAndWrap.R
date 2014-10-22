@@ -260,7 +260,6 @@ wfgEval = function(z, num.objectives, spec, z.maxes=NA, num.pos.rel=NA, degen=FA
         stop("the shapes have completed for every target-entry but found additional entries in the spec")
       }
       target.index = target.index + applylength
-      # wrap-around (now prevented above)   if (target.index>M) target.index = 1
     }
     
   }

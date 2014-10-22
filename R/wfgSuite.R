@@ -35,8 +35,8 @@ wfg9t = NA
 #' @return nothing
 #' @export
 #' @examples
-#' wfgSuite()
-#' wfg1(rep(0.1, 5))
+#' # wfgSuite()
+#' # wfg1(rep(0.1, 5))
 
 wfgSuite = function(n = 5, k = 3, M = 2) {
 

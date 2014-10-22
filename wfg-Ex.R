@@ -162,8 +162,8 @@ flush(stderr()); flush(stdout())
 
 ### ** Examples
 
-wfgSuite()
-wfg1(rep(0.1, 5))
+# wfgSuite()
+# wfg1(rep(0.1, 5))
 
 
 

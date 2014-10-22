@@ -24,7 +24,7 @@ wfgX is the actual evaluating function, \cr
 wfgXt is its true-front version. \cr
 }
 \examples{
-wfgSuite()
-wfg1(rep(0.1, 5))
+# wfgSuite()
+# wfg1(rep(0.1, 5))
 }
 

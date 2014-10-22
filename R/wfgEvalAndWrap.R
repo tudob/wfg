@@ -5,30 +5,30 @@
 #' wfgEval and wfgWrap
 #'
 #' wfgEval evaluates a test function (conforming to a specification) at a given point. \cr
-#' wfgWrap creates a functor (conforming to a specification) without evaluating it. \cr\cr
+#' wfgWrap creates a functor (conforming to a specification) without evaluating it. \cr
 #' wfgEval can be directly executed e.g. in a loop trying various parameters. \cr
 #' wfgWrap returned functor can be given to optimization algorithms.
 #'
-#' @param z \cr
+#' @param z 
 #'   The point at which to evaluate the test function.
-#' @param num.objectives \cr
+#' @param num.objectives 
 #'   The size of the output vector. (|out|<=|in|)
-#' @param spec \cr
+#' @param spec 
 #'   The specification of transformations, shapes and their parameters.\cr
 #'   specifically a vector or list with:
-#' @param z.maxes \cr
+#' @param z.maxes 
 #'   This and all following parameters are optional. (If you use any of them, that you place them before giving the spec.) A vector containing the maximum for each in-dimension (the minima are always 0). default is all 1.
-#' @param num.pos.rel \cr
+#' @param num.pos.rel 
 #'   The number of position-related parameters. For details refer to the paper (variable k).
-#' @param degen \cr
+#' @param degen 
 #'   Whether to degenerate the pareto frontier. Normally it is a hyperplane, this degenerates it by 1 dimension.
-#' @param scales \cr
+#' @param scales 
 #'   A vector of factors for the objectives.
-#' @param dist \cr
+#' @param dist 
 #'   A single distance scaling factor. In principle moving the evaluations away from the true pareto frontier.
-#' @param noise \cr
+#' @param noise 
 #'   The standard deviation of the multivariate normal distributed noise added on top.
-#' @param true.front \cr
+#' @param true.front 
 #'   Whether to instead return the point on the true pareto frontier corresponding to the input.
 #' @return wfgEval: The vector of objective values. wfgWrap: a functor that can be given to optimization algorithms.
 #' @export

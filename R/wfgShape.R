@@ -2,14 +2,14 @@
 
 #' wfgShape - used by wfgEval to apply a shape to part of the objective-space vector
 #'
-#' @param x \cr
+#' @param x 
 #'   The point at which to evaluate the shape function. It has dimension of search-space.
-#' @param current \cr
+#' @param current 
 #'   The current shape function specified by the user
 #' @param start.index
-#' @param apply.length \cr
+#' @param apply.length 
 #'   Specifying to which entries to apply the shape to.
-#' @param params \cr
+#' @param params 
 #'   List of parameters to this shape
 #' @return The vector x to which the shape has been applied. Those entries that were changed now have their final objective value, but more shapes can follow for the later indices.
 #' @export

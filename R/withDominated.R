@@ -1,11 +1,11 @@
 #' withDominated 
 #' 
-#' withDominated is a visualization used alongside the wfg package. It shows the usual representation of objective space and pareto-frontier but complements it with the dominated individuals.\cr\cr
+#' withDominated is a visualization used alongside the wfg package. It shows the usual representation of objective space and pareto-frontier but complements it with the dominated individuals.\cr
 #' baGraphicsWithDominated is a wrapper taking a filename for output and a specification for the test-function.
 #'
-#' @param func \cr
+#' @param func 
 #'   The function to plot
-#' @param spec \cr
+#' @param spec 
 #'   Specification of the function to plot
 #' @return nothing
 #' @export

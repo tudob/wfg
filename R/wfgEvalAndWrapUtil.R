@@ -1,9 +1,9 @@
 #' Utility functions for wfgEval and wfgWrap
 #'
-#' used only within wfgEval \cr\cr
-#' checkTrafoComplete: different transformations can be applied throughout the vector - this can be done multiple times, each time the vector wraps around (from last index to first) - the last transformation overall has to end at the last entry of the vector, this function checks that condition.\cr\cr
-#' checkShapeComplete: similar to checkTrafoComplete (however shapes dont wrap around).\cr\cr
-#' tToX: transformations are applied to the search-space vector, shapes to the objective-space vector. tToX does the transformation of the first to the second and also integrates the degeneracy factor A. \cr\cr
+#' used only within wfgEval \cr
+#' checkTrafoComplete: different transformations can be applied throughout the vector - this can be done multiple times, each time the vector wraps around (from last index to first) - the last transformation overall has to end at the last entry of the vector, this function checks that condition.\cr
+#' checkShapeComplete: similar to checkTrafoComplete (however shapes dont wrap around).\cr
+#' tToX: transformations are applied to the search-space vector, shapes to the objective-space vector. tToX does the transformation of the first to the second and also integrates the degeneracy factor A. \cr
 
 #' @export
 wfgEvalAndWrapUtil = function() {} # placeholder

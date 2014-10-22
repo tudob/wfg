@@ -6,18 +6,18 @@
 
 #' wfgTransformation - used by wfgEval to apply a transformation to part of the search-space vector
 #'
-#' @param M \cr
+#' @param M 
 #'   The number of objectives
-#' @param current \cr
+#' @param current 
 #'   The current transformation function specified by the user
 #' @param start.index
-#' @param apply.length \cr
+#' @param apply.length 
 #'   Specifying to which entries to apply the transformation to.
-#' @param n \cr
+#' @param n 
 #'   The search-space dimension.
-#' @param k \cr
+#' @param k 
 #'   The number of position-dependent parameters.
-#' @param params \cr
+#' @param params 
 #'   List of parameters to this shape
 #' @return The vector x to which the shape has been applied. Those entries that were changed now have their final objective value, but more shapes can follow for the later indices.
 #' @export

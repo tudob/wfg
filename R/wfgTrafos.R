@@ -10,70 +10,70 @@
 
 #' WFG Transformations
 #'
-#' tNone is a transformation that changes nothing. It is used to move the entries cursor along to change later entries.\cr\cr
-#' tPoly is the polynomial bias transformation.\cr\cr
-#' tFlat creates a region in search space in which all points have the same objective values.\cr\cr
-#' tParam is the parameter-dependent transformation.\cr\cr
-#' tLinear creates a linear shift of the true optimum.\cr\cr
-#' tDecept creates regions in the search space that have a sub-optimal value but larger area.\cr\cr
-#' tMulti creates many local optima.\cr\cr
-#' tSum creates a dependence between different search-space entries.\cr\cr
-#' tNonsep creates a dependence between objectives.\cr\cr
+#' tNone is a transformation that changes nothing. It is used to move the entries cursor along to change later entries.\cr
+#' tPoly is the polynomial bias transformation.\cr
+#' tFlat creates a region in search space in which all points have the same objective values.\cr
+#' tParam is the parameter-dependent transformation.\cr
+#' tLinear creates a linear shift of the true optimum.\cr
+#' tDecept creates regions in the search space that have a sub-optimal value but larger area.\cr
+#' tMulti creates many local optima.\cr
+#' tSum creates a dependence between different search-space entries.\cr
+#' tNonsep creates a dependence between objectives.\cr
 #'
-#' @param y \cr
+#' @param y 
 #'   The value of the search space entry to which to apply this to.
 #' \cr
-#' @param alpha \cr
+#' @param alpha 
 #'   tPoly: alpha>1 biases toward 0, <1 biases toward 1.
 #' \cr
-#' @param value \cr
+#' @param value 
 #'   tFlat: The value of the flat region. The adjacent regions interpolate to this value.
-#' @param from \cr
-#' @param to \cr
+#' @param from 
+#' @param to 
 #'   tFlat: The region of the search space that is flat, same for every dimension.
 #' \cr
 
-#' @param y.prime \cr
+#' @param y.prime 
 #'   tParam: Is set by the system, it does not occur in the parameters the user writes in the specification
-#' @param factor \cr
+#' @param factor 
 #'   tParam: Determines the slope of the ramp.
-#' @param starter \cr
-#' @param ender \cr
+#' @param starter 
+#' @param ender 
 #'   tParam: The influence region.
 
 #' \cr
-#' @param zero.loc \cr
+#' @param zero.loc 
 #'   tLinear: The location of the true optimum.
 #' \cr
 
-#' @param opti.loc \cr
+#' @param opti.loc 
 #'   tDecept: The location of the true optimum.
-#' @param aperture \cr
+#' @param aperture 
 #'   tDecept: The size of the opening around the true optimum.
-#' @param deceptive.value \cr
+#' @param deceptive.value 
 #'   tDecept: The value of the sub-optimal areas.
 #' \cr
 
-#' @param opti.loc \cr
+#' @param opti.loc 
 #'   tMulti: The location of the true optimum.
-#' @param num.minima \cr
+#' @param num.minima 
 #'   tMulti: The number of the local optima.
-#' @param hill.size \cr
+#' @param hill.size 
 #'   tMulti: The size of the hills between the local optima.
 #' \cr
 
-#' @param i \cr
-#' @param k \cr
-#' @param M \cr
+#' @param i 
+#' @param k 
+#' @param M 
 #'   tSum: Are set by the system, they do not occur in the parameters the user writes in the specification
-#' @param from \cr
-#' @param to \cr
+#' @param from 
+#' @param to 
 #'   tSum: The entries which are made dependent on eachother.
-#' @param weights \cr
+#' @param weights 
 #'   tSum: Optional for the weighted sum.
 #' \cr
 
-#' @param degree \cr
+#' @param degree 
 #'   tNonsep: Degree of nonseparability.
 #' \cr
 

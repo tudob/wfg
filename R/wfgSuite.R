@@ -19,18 +19,18 @@ wfg9t <<- NA
 
 #' wfgSuite
 #'
-#' Some of the example problems given by the WFG 2006 paper. \cr\cr
-#' Implementation note: This is a deferred initialization which brings the definitions into the global environment. \cr\cr
-#' They are wfgXspec, wfgX, wfgXt where X is 1, 4, 5, 6, 7, or 9. \cr\cr
+#' Some of the example problems given by the WFG 2006 paper. \cr
+#' Implementation note: This is a deferred initialization which brings the definitions into the global environment. \cr
+#' They are wfgXspec, wfgX, wfgXt where X is 1, 4, 5, 6, 7, or 9. \cr
 #' wfgXSpec is only the declarative specification,  \cr
 #' wfgX is the actual evaluating function, \cr
 #' wfgXt is its true-front version. \cr
 #'
-#' @param n \cr
+#' @param n 
 #'   Number of search-space dimensions
-#' @param k \cr
+#' @param k 
 #'   Number position-related parameters
-#' @param M \cr
+#' @param M 
 #'   Number of objective-space dimensions
 #' @return nothing
 #' @export

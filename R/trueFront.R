@@ -1,9 +1,9 @@
 #' trueFront
 #'
 #' A plot showing the true pareto front - making use of wfgEval's parameter true.front
-#' @param name \cr
+#' @param name 
 #'   Name under which to store a .png
-#' @param spec \cr
+#' @param spec 
 #'   Specification of the test function to plot
 #' @return nothing
 #' @export

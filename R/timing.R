@@ -2,9 +2,9 @@
 #'
 #' The timing function is used alongside the WFG package. It estimates the number of evaluations per second.
 #'
-#' @param expr \cr
+#' @param expr 
 #'   The expression to be timed.
-#' @param maxSeconds \cr
+#' @param maxSeconds 
 #'   The maximum number of seconds you want to wait for the averaging. There are heuristics such that normally maxSeconds is not reached.
 #' @return number of evaluations per second
 #' @export

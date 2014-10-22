@@ -9,23 +9,23 @@
 
 #' WFG Shapes
 #'
-#' sNone is a shape that changes nothing. It is used to move the entries cursor along to change later entries.\cr\cr
-#' sLinear is the linear pareto frontier. \cr\cr
-#' sConvex is the convex pareto frontier. \cr\cr
-#' sConcave is the concave pareto frontier. \cr\cr
-#' sMixed is a shape of the pareto frontier that has some convex and concave parts. \cr\cr
-#' sDisc is a shape of the pareto frontier that is not continuous.\cr\cr
+#' sNone is a shape that changes nothing. It is used to move the entries cursor along to change later entries.\cr
+#' sLinear is the linear pareto frontier. \cr
+#' sConvex is the convex pareto frontier. \cr
+#' sConcave is the concave pareto frontier. \cr
+#' sMixed is a shape of the pareto frontier that has some convex and concave parts. \cr
+#' sDisc is a shape of the pareto frontier that is not continuous.\cr
 #'
-#' @param x \cr
+#' @param x 
 #'   The vector in objective space without its last entry.
 #'
-#' @param overall \cr
+#' @param overall 
 #'   The overall form of the pareto frontier, if it is >1 then it is more convex, if <1 then more concave.
-#' @param num \cr
+#' @param num 
 #'   Number of parts of the pareto frontier.
-#' @param overall \cr
+#' @param overall 
 #'   The overall form of the pareto frontier, if it is >1 then it is more concave, if <1 then more convex.
-#' @param location \cr
+#' @param location 
 #'   Where the discontinuities are. A larger value moves it to larger values of the first objective.
 
 #' @return The modified vector.

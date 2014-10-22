@@ -11,20 +11,20 @@
 
 #' toPlot
 #'
-#' A visualization used alongside the WFG package. It shows for each point in the discretized search-space which objective-values will be realized by it (as color).\cr\cr
-#' At the moment the first two search-space dimensions are selected (this should be parameterized in the future).\cr\cr
-#' It is possible to show an RGB- or Red-Blue-plot (chosen because of common red-green blindness).\cr\cr
+#' A visualization used alongside the WFG package. It shows for each point in the discretized search-space which objective-values will be realized by it (as color).\cr
+#' At the moment the first two search-space dimensions are selected (this should be parameterized in the future).\cr
+#' It is possible to show an RGB- or Red-Blue-plot (chosen because of common red-green blindness).\cr
 #' Red-Blue: Red shows a large value in the first objective, Blue shows a large value in the second objective.\cr
-#' Green dots show the non-dominated individuals of an optimization algorithm (which can internally run multiple times), it is surprisingly instructive.\cr\cr
+#' Green dots show the non-dominated individuals of an optimization algorithm (which can internally run multiple times), it is surprisingly instructive.\cr
 #' toPlot22 is a wrapper taking a wfg spec instead of an arbitrary function.\cr
 #'
-#' @param func \cr
+#' @param func 
 #'   The function to be shown
-#' @param ranked \cr
+#' @param ranked 
 #'   Decides whether the colors are chosen based on ranked objective-values. This is recommended to distinguish colors but it does not allow interpretation of their absolute values.
-#' @param inDim \cr
+#' @param inDim 
 #'   Number of search-space dimensions; needed for the optimization algorithm
-#' @param opt.algo \cr
+#' @param opt.algo 
 #'   An optimization algorithm may be specified. Its non-dominated individuals are shown.
 #' @return nothing
 #' @export

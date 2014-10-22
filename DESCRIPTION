@@ -18,6 +18,7 @@ Depends:
     BBmisc
 Suggests:
     testthat,
-    pixmap
+    pixmap,
+    mco
 ByteCompile: yes
 Version: 0.1

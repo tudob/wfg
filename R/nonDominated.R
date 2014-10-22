@@ -1,17 +1,17 @@
 #' nonDominated
 #'
-#' This determines the non-dominated points.\cr\cr
+#' This determines the non-dominated points.\cr
 #' nonDominated is similar to emoa::nonDominated_points() but it retains extra columns.\cr
 #' This allows to later know the search-space coordinates of the returned points. \cr\cr
 #' nonDominate is also similar to mco::paretoSet() however that depends on the optimization-algorithm being able to calculate the logical dominated-column itself. nonDominated does not have any such dependency.\cr
-#' @param matr \cr
+#' @param matr
 #'   Matrix with an individual in each row. The meanings of columns are determined by numCoords:
-#' @param numCoords \cr
+#' @param numCoords
 #'   The first numCoords columns are usually the search-space coordinates of the individuals (other aspects can be stored as well), the remaining columns are the objective-space values of the individuals with which domination will be determined.
 #' @return the matrix of non-dominated individuals
 #' @export
 #' @examples
-#' this shows two values on the two axis and their two search-space coordinates as color and form
+#' # this shows two values on the two axis and their two search-space coordinates as color and form
 #' value1 = runif(20)
 #' value2 = runif(20)
 #' coord1 = 1:20
@@ -25,7 +25,8 @@
 
 nonDominated = function(matr, numCoords) { # the first columns are coordinates, the remaining their values (on which to determine which are nonDom)
   numValues = ncol(matr)-numCoords
-  if(numValues>numCoords) stop("objective-space larger than search-space")
+  # DH: Warum??
+  #if(numValues>numCoords) stop("objective-space larger than search-space")
   l = list()
   for (i in 1:numValues) l[[i]] = matr[, numCoords+i]
   ord = do.call(order, l)
